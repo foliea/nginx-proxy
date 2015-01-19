@@ -25,8 +25,7 @@ Proxy a specific port to both your webserver and websocket server with
 
 ## Usage
 
-    docker run -e SERVER_NAME="42grounds.io" \
-               -e WEB_URL="http://127.0.0.1:3000" \
+    docker run -e WEB_URL="http://127.0.0.1:3000" \
                -e WS_URL="http://127.0.0.1:8080" \
                -d -p 80:80 folieadrien/nginx-proxy
                
@@ -40,4 +39,3 @@ You can customize this container with environment variables:
 * `WEB_URL`: Webserver url to proxy (**must be specified**).
 * `WS_URL`: Websocket server to proxy (**must be specified**).
 * `WS_ROUTE`: Websocket route to proxy (default: `socket.io`).
-
