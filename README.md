@@ -18,17 +18,17 @@ Proxy a specific port to both your webserver and websocket server with
 
 1. Install [docker](http://www.docker.com).
 
-2. Download [automated build](https://registry.hub.docker.com/u/folieadrien/nginx-proxy) from public 
+2. Download [automated build](https://registry.hub.docker.com/u/folieadrien/nginx-proxy) from public
 [docker hub registry](https://registry.hub.docker.com/):
 
     `docker pull folieadrien/nginx-proxy`
 
 ## Usage
 
-    docker run -e WEB_URL="http://127.0.0.1:3000" \
-               -e WS_URL="http://127.0.0.1:8080" \
+    docker run -e WEB_URL="http://<docker host ip>:3000" \
+               -e WS_URL="http://<docker host ip>:8080" \
                -d -p 80:80 folieadrien/nginx-proxy
-               
+
 ## Environment variables
 
 You can customize this container with environment variables:
