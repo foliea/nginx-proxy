@@ -1,6 +1,6 @@
 # nginx-proxy
 
-This repository contains `Dockerfile` of nginx-proxy for docker's automated build
+This repository contains `Dockerfile` of `nginx-proxy` for docker's automated build
 published to the public docker hub registry.
 
 Proxy a specific port to both your webserver and websocket server with
@@ -36,7 +36,7 @@ You can customize this container with environment variables:
 
 * `SERVER_NAME`: Server name (default: `MyServer`).
 * `PORT`: Port to serve (default: `80`).
-* `WEB_URL`: Webserver url to proxy (must be specified).
-* `WS_URL`: Websocket server to proxy (must be specified).
+* `WEB_URL`: Webserver url to proxy (**must be specified**).
+* `WS_URL`: Websocket server to proxy (**must be specified**).
 * `WS_ROUTE`: Websocket route to proxy (default: `socket.io`).
 
