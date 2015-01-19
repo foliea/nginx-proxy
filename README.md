@@ -34,6 +34,7 @@ Proxy a specific port to both your webserver and websocket server with
 
 You can customize this container with environment variables:
 
+* `WORKERS`: Worker connections (default: `1024`).
 * `SERVER_NAME`: Server name (default: `MyServer`).
 * `PORT`: Port to serve (default: `80`).
 * `WEB_URL`: Webserver url to proxy (**must be specified**).
