@@ -37,7 +37,7 @@ You can also mount a volume with ssl certficates and use ssl:
                -v <your certs directory>:/certs \
                -d -p 443:443 folieadrien/nginx-proxy
 
-> The path your are mounting should have both `cert.csr` and `key.key`
+> The path your are mounting should have both `cert.pem` and `key.pem`
 certificate files inside.
 
 ## Environment variables
