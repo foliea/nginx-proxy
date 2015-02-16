@@ -11,11 +11,15 @@ ENV ENVPLATE 0.0.4
 RUN curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v$ENVPLATE/ep-linux && \
     chmod +x /usr/local/bin/ep
 
-# Copy files in the image
-COPY . .
+RUN touch /etc/nginx/allow.conf
 
 # Add volume for ssl certificates
 VOLUME /certs
+# Add volume for external config files
+VOLUME /config
+
+# Copy files in the image
+COPY . .
 
 # Launch EnvPlate then Nginx
 ENTRYPOINT ["./run.sh"]
