@@ -33,7 +33,7 @@ You can also mount a volume with ssl certficates and use ssl:
 
     docker run -e WEB_URL="http://<docker host ip>:3000" \
                -e WS_URL="http://<docker host ip>:8080" \
-               -e SSL="on" \
+               -e SSL=1 \
                -v <your certs directory>:/certs \
                -d -p 443:443 folieadrien/nginx-proxy
 
@@ -50,5 +50,5 @@ You can customize this container with environment variables:
 * `WEB_URL`: Webserver url to proxy (**must be specified**).
 * `WS_URL`: Websocket server to proxy (**must be specified**).
 * `WS_ROUTE`: Websocket route to proxy (default: `socket.io`).
-* `SSL`: Use SSL (defaults: `off`).
+* `SSL`: Use SSL (defaults: `0`).
 * `SSL_PORT`: Port to serve for SSL (defaults: `443`).

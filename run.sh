@@ -3,7 +3,7 @@ set -e
 
 target="/etc/nginx/nginx.conf"
 
-if [ "$SSL" = "on" ]; then
+if [ "$SSL" = 1 ]; then
     mv nginx_ssl.conf $target
 else
     mv nginx.conf $target
