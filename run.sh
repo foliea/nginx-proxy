@@ -2,7 +2,6 @@
 set -e
 
 nginx_conf="/etc/nginx/nginx.conf"
-allow="/etc/nginx/allow.conf"
 
 if [ "$SSL" = "on" ]; then
     mv nginx_ssl.conf $nginx_conf
