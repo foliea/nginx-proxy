@@ -18,4 +18,4 @@ if [ -f $allow_origin ]; then
     mv $allow_origin $allow_target
 fi
 
-ep -v $target -- /usr/sbin/nginx
+ep -v $nginx_conf -- /usr/sbin/nginx
