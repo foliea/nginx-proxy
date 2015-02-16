@@ -14,7 +14,7 @@ allow_origin="/config/allow.conf"
 allow_target="/etc/nginx/allow.conf"
 
 # If user add a custom allow file
-if [ -f $allow_origin ]
+if [ -f $allow_origin ]; then
     mv $allow_origin $allow_target
 fi
 
