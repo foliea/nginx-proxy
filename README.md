@@ -45,7 +45,7 @@ certificate files inside.
 You can customize this container with environment variables:
 
 * `WORKERS`: Worker connections (default: `1024`).
-* `SERVER_NAME`: Server name (default: `MyServer`).
+* `SERVER_NAME`: Server domain name (e.g. `beta.42grounds.io`).
 * `PORT`: Port to serve (default: `80`).
 * `WEB_URL`: Webserver url to proxy (**must be specified**).
 * `WS_URL`: Websocket server to proxy (**must be specified**).
