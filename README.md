@@ -37,6 +37,9 @@ You can also mount a volume with ssl certficates and use ssl:
                -v <your certs directory>:/certs \
                -d -p 80:80 -p 443:443 folieadrien/nginx-proxy
 
+> The path your are mounting must have both `cert.pem` and `key.pem`
+certificate files inside.
+
 You can also use Docker links instead of setting manually `WEB_URL` and
 `WS_URL`:
 
@@ -44,8 +47,7 @@ You can also use Docker links instead of setting manually `WEB_URL` and
                --link="container2:ws" \
                -d -p 80:80 folieadrien/nginx-proxy
 
-> The path your are mounting must have both `cert.pem` and `key.pem`
-certificate files inside.
+> You must link to containers with at least one port exposed.
 
 ## Environment variables
 
