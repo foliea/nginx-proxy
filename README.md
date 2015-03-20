@@ -35,7 +35,14 @@ You can also mount a volume with ssl certficates and use ssl:
                -e WS_URL="http://<docker host ip>:8080" \
                -e SSL=1 \
                -v <your certs directory>:/certs \
-               -d -p 443:443 folieadrien/nginx-proxy
+               -d -p 80:80 -p 443:443 folieadrien/nginx-proxy
+
+You can also use Docker links instead of setting manually `WEB_URL` and
+`WS_URL`:
+
+    docker run --link="container1:web" \
+               --link="container2:ws" \
+               -d -p 80:80 folieadrien/nginx-proxy
 
 > The path your are mounting must have both `cert.pem` and `key.pem`
 certificate files inside.
@@ -47,8 +54,11 @@ You can customize this container with environment variables:
 * `WORKERS`: Worker connections (default: `1024`).
 * `SERVER_NAME`: Server domain name (e.g. `beta.42grounds.io`).
 * `PORT`: Port to serve (default: `80`).
-* `WEB_URL`: Webserver url to proxy (**must be specified**).
-* `WS_URL`: Websocket server to proxy (**must be specified**).
 * `WS_ROUTE`: Websocket route to proxy (default: `socket.io`).
 * `SSL`: Use SSL (defaults: `0`).
 * `SSL_PORT`: Port to serve for SSL (defaults: `443`).
+
+If you are not using Docker links:
+
+* `WEB_URL`: Webserver url to proxy (**must be specified**).
+* `WS_URL`: Websocket server to proxy (**must be specified**).
