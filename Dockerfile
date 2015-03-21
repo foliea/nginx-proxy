@@ -1,5 +1,7 @@
 FROM nginx:1.7.8
 
+MAINTAINER Adrien Folie <folie.adrien@gmail.com>
+
 # Install curl
 RUN apt-get update -qq && \
     apt-get install -qy curl
