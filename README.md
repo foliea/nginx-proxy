@@ -12,22 +12,22 @@ Proxy a specific port to both your webserver and websocket server with
 
 ## Sources
 
-* [GitHub](https://github.com/folieadrien/nginx-proxy)
+* [GitHub](https://github.com/foliea/nginx-proxy)
 
 ## Installation
 
 1. Install [docker](http://www.docker.com).
 
-2. Download [automated build](https://registry.hub.docker.com/u/folieadrien/nginx-proxy) from public
+2. Download [automated build](https://registry.hub.docker.com/u/foliea/nginx-proxy) from public
 [docker hub registry](https://registry.hub.docker.com/):
 
-    `docker pull folieadrien/nginx-proxy`
+    `docker pull foliea/nginx-proxy`
 
 ## Usage
 
     docker run -e WEB_URL="http://<docker host ip>:3000" \
                -e WS_URL="http://<docker host ip>:8080" \
-               -d -p 80:80 folieadrien/nginx-proxy
+               -d -p 80:80 foliea/nginx-proxy
 
 You can also mount a volume with ssl certficates and use ssl:
 
@@ -35,7 +35,7 @@ You can also mount a volume with ssl certficates and use ssl:
                -e WS_URL="http://<docker host ip>:8080" \
                -e SSL=1 \
                -v <your certs directory>:/certs \
-               -d -p 80:80 -p 443:443 folieadrien/nginx-proxy
+               -d -p 80:80 -p 443:443 foliea/nginx-proxy
 
 > The path your are mounting must have both `cert.pem` and `key.pem`
 certificate files inside.
@@ -45,7 +45,7 @@ You can also use Docker links instead of setting manually `WEB_URL` and
 
     docker run --link="container1:web" \
                --link="container2:ws" \
-               -d -p 80:80 folieadrien/nginx-proxy
+               -d -p 80:80 foliea/nginx-proxy
 
 > You must link to containers with at least one port exposed.
 
