@@ -1,4 +1,5 @@
 # nginx-proxy
+[![foliea/nginx-proxy](badge.png)](https://registry.hub.docker.com/u/foliea/nginx-proxy/)
 
 This repository contains `Dockerfile` of `nginx-proxy` for docker's automated build
 published to the public docker hub registry.
