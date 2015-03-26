@@ -59,7 +59,7 @@ You can customize this container with environment variables:
 * `PORT`: Port to serve (default: `80`).
 * `WS_ROUTE`: Websocket route to proxy (default: `socket.io`).
 * `SSL`: Use SSL (defaults: `0`).
-* `SSL_PORT`: Port to serve for SSL (defaults: `443`).
+* `SSL_PORT`: Port to serve for SSL (default: `443`).
 
 If you are not using Docker links:
 
