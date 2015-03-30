@@ -1,22 +1,24 @@
 #!/bin/sh
 set -e
 
-format_http() {
-    echo "http:$(echo $1 | cut -d':' -f 2,3)"
+resolve_port() {
+    echo $1 | cut -d':' -f 3
 }
 
 target="/etc/nginx/nginx.conf"
 
 if [ -z "$WEB_URL" ]; then
     echo "Web URL not set, trying to resolve link web..."
-
-    WEB_URL=$(format_http $WEB_PORT)
+    
+    port=$(resolve_port "$WEB_PORT")
+    web_url="http://web:$port"
 fi
 
 if [ -z "$WS_URL" ]; then
     echo "Websocket URL not set, trying to resolve link ws..."
 
-    WS_URL=$(format_http $WS_PORT)
+    port=$(resolve_port "$WS_PORT")
+    ws_url="http://ws:$port"
 fi
 
 if [ "$SSL" = 1 ]; then
@@ -25,4 +27,4 @@ else
     mv nginx.conf $target
 fi
 
-WEB_URL=$WEB_URL WS_URL=$WS_URL ep -v $target -- /usr/sbin/nginx
+WEB_URL=$web_url WS_URL=$ws_url ep -v $target -- /usr/sbin/nginx
