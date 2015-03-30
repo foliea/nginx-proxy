@@ -5,8 +5,6 @@ resolve_port() {
     echo $1 | cut -d':' -f 3
 }
 
-target="/etc/nginx/nginx.conf"
-
 if [ -z "$WEB_URL" ]; then
     echo "Web URL not set, trying to resolve link web..."
     
@@ -20,6 +18,8 @@ if [ -z "$WS_URL" ]; then
     port=$(resolve_port "$WS_PORT")
     ws_url="http://ws:$port"
 fi
+
+target="/etc/nginx/nginx.conf"
 
 if [ "$SSL" = 1 ]; then
     mv nginx_ssl.conf $target
